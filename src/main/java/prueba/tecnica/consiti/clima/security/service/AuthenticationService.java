@@ -30,13 +30,17 @@ public class AuthenticationService {
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(role)
                 .fechaDeRegistro(LocalDate.now())
+                .cantidadConsultas(500)
+                .fechaRestauracionConsultas(LocalDate.now())
                 .build();
+
         usuarioRepository.save(usuario);
         String jwtToken = jwtService.generateToken(usuario);
         return AuthenticationResponse.builder()
                 .jwt(jwtToken)
                 .build();
     }
+
     public AuthenticationResponse login(AuthenticationRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(

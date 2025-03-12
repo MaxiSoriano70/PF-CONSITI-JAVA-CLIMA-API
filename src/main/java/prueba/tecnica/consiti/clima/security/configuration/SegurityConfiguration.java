@@ -22,7 +22,7 @@ public class SegurityConfiguration {
                 {
                     // Endpoints sin autenticación
                     auth.requestMatchers("/auth/**").permitAll();
-                    auth.requestMatchers("/api/clima/**").permitAll();
+                    auth.requestMatchers("/api/**").permitAll();
 
                     // Endpoints accesibles para ADMIN y USER
                     auth.requestMatchers(HttpMethod.PUT, "/usuario/**").hasAnyRole("ADMIN", "USER");
