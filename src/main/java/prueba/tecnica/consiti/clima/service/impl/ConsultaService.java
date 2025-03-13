@@ -40,6 +40,7 @@ public class ConsultaService implements IConsultaService {
     private final IUsuarioRepository usuarioRepository;
     private final IConsultaRepository consultaRepository;
     private final JtwService jwtService;
+    /*private final String apiKey = System.getenv("OPENWEATHER_API_KEY");*/
     private final String apiKey = "0f5fe8fc0e2d930e421a62c3e452c9f4";
 
     public ConsultaService(RestTemplate restTemplate, IUsuarioRepository usuarioRepository,

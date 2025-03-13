@@ -16,6 +16,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class JtwService {
+
+    /*private static final String SECRET_KEY = System.getenv("JWT_SECRET_KEY");*/
     private static final String SECRET_KEY = "d85fdfad667f0fed4487e3cbb8a67ed5d37db75bacf1981def8a572399a9cda0";
     public String generateToken(Usuario usuario) {
         Map<String, Object> claims = new HashMap<>();
