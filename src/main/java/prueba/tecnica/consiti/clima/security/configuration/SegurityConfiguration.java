@@ -20,9 +20,11 @@ public class SegurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.authorizeHttpRequests(auth ->
                 {
-                    // Endpoints sin autenticación
+                     // Endpoints sin autenticación
+                    auth.requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html", "/webjars/**").permitAll();
                     auth.requestMatchers("/auth/**").permitAll();
-                    auth.requestMatchers("/api/**").permitAll();
+                    auth.requestMatchers("/api/**").hasAnyRole("ADMIN", "USER");
+                    auth.requestMatchers("/api/auditoria/**").hasRole("ADMIN");
 
                     // Endpoints accesibles para ADMIN y USER
                     auth.requestMatchers(HttpMethod.PUT, "/usuario/**").hasAnyRole("ADMIN", "USER");

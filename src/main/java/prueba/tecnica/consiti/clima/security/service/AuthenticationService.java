@@ -30,7 +30,7 @@ public class AuthenticationService {
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(role)
                 .fechaDeRegistro(LocalDate.now())
-                .cantidadConsultas(500)
+                .cantidadConsultas(100)
                 .fechaRestauracionConsultas(LocalDate.now())
                 .build();
 

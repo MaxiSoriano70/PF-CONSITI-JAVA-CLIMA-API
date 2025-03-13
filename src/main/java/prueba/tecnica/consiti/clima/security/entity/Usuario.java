@@ -44,7 +44,7 @@ public class Usuario implements UserDetails {
     private LocalDate fechaDeRegistro;
 
     @Column(nullable = false)
-    private Integer cantidadConsultas = 500;
+    private Integer cantidadConsultas = 100;
 
     @Column(nullable = false)
     private LocalDate fechaRestauracionConsultas;

@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class ContaminacionDTO {
     private String ciudad;
-    private double latitud;
-    private double longitud;
-    private int indiceContaminacion;
+    private Double latitud;
+    private Double longitud;
+    private Integer indiceContaminacion;
 }
