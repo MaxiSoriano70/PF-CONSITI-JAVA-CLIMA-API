@@ -50,8 +50,6 @@ public class ConsultaService implements IConsultaService {
         this.consultaRepository = consultaRepository;
         this.jwtService = jwtService;
     }
-
-    // 🔹 Método para registrar la consulta en la base de datos
     public boolean registrarConsulta(Usuario usuario, String ciudad, ETipoConsulta tipoConsulta) {
         if (usuario.getFechaRestauracionConsultas().isBefore(LocalDate.now())) {
             usuario.setCantidadConsultas(100);
