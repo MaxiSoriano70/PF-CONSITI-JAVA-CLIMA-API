@@ -35,7 +35,6 @@ public class ConsultaService implements IConsultaService {
     private static final String API_WEATHER_URL = "https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apiKey}&units=metric&lang=es";
     private static final String API_FORECAST_URL = "https://api.openweathermap.org/data/2.5/forecast?q={city}&appid={apiKey}&units=metric&lang=es";
     private static final String API_AIR_POLLUTION_URL = "https://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid={apiKey}";
-
     private final RestTemplate restTemplate;
     private final IUsuarioRepository usuarioRepository;
     private final IConsultaRepository consultaRepository;
@@ -50,8 +49,6 @@ public class ConsultaService implements IConsultaService {
         this.consultaRepository = consultaRepository;
         this.jwtService = jwtService;
     }
-
-    // 🔹 Método para registrar la consulta en la base de datos
     public boolean registrarConsulta(Usuario usuario, String ciudad, ETipoConsulta tipoConsulta) {
         if (usuario.getFechaRestauracionConsultas().isBefore(LocalDate.now())) {
             usuario.setCantidadConsultas(100);
@@ -105,7 +102,6 @@ public class ConsultaService implements IConsultaService {
 
         return Optional.of(response);
     }
-
 
     @Override
     @Cacheable(value = "pronostico", key = "#ciudad", unless = "#result == null")
@@ -176,7 +172,6 @@ public class ConsultaService implements IConsultaService {
             return Optional.empty();
         }
     }
-
     @Override
     @Cacheable(value = "contaminacion", key = "#ciudad", unless = "#result == null")
     public Optional<ContaminacionDTO> contaminacionPorCiudad(Usuario usuario, String ciudad) {
